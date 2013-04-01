@@ -1,0 +1,17 @@
+#!/usr/bin/env perl
+
+#  PODNAME: App::assh
+# ABSTRACT: A wrapper around autossh.
+
+use v5.10;
+use strict;
+use warnings;
+
+use FindBin;
+
+use lib "$FindBin::Bin/../lib";
+
+use App::assh;
+
+my $app = App::assh->new;
+$app->run(@ARGV);
