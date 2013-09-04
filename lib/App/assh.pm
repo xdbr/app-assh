@@ -108,7 +108,25 @@ First, you will need a file `~/.ssh/config`. It looks something like this:
     HostName bar.example.com
     User baz
 
+With this, you can already leverage standard `ssh` connections:
 
+    ssh foo
+
+... instead of
+
+    ssh baz@bar.example.com
+
+Next, generate a file `~/.autossh_rc` with the following format:
+
+    foo 12345
+
+... with the first entry on the line representing your `Host` in `~/.ssh/config` and the second item on the line being the port over which to keep the autossh connection alive.
+
+Now you can permanently connect using:
+
+    assh foo
+
+... with the connection kept alive across network switches and computer shutdowns.
 
 
 = ATTRIBUTES
