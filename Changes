@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+1.1.1     2013-09-04 18:15:34 Europe/Berlin
+
+    * Version 1.1.0 was rejected by cpan
+
 1.1.0     2013-09-04 10:07:00 Europe/Berlin
 
     * Fix documentation issue.
