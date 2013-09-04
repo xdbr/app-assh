@@ -89,11 +89,46 @@ no Moo;
 
 A wrapper around autossh.
 
+= MOTIVATION
+
+`autossh` is a nifty little ssh-keepalive-connection-holder.
+
+Passing in the ports for the keepalive can be clumsy though: `assh` helps you to avoid that.
+
 = USAGE
 
     assh
 
     assh HOSTNAME
+
+= REQUIREMENTS
+
+First, you will need a file `~/.ssh/config`. It looks something like this:
+
+    Host foo
+    HostName bar.example.com
+    User baz
+
+With this, you can alreadt leverage standard `ssh` connections:
+
+    ssh foo
+
+... instead of 
+
+    ssh baz@bar.example.com
+
+Next, generate a file `~/.autossh_rc` with the following format:
+
+    foo 12345
+
+... with the first entry on the line representing your `Host` in `~/.ssh/config` and the second item on the line being the port over which to keep the autossh connection alive.
+
+Now you can permanently connect using:
+
+    assh foo
+
+... with the connection kept alive across network switches and computer shutdowns.
+
 
 = ATTRIBUTES
 
@@ -104,5 +139,9 @@ A wrapper around autossh.
 * ssh_config_file: The path to the ssh config file. Default: `~/.ssh/config`
 
 * ports_config_file: The path to the ports config (this is what I have chosen): `~/.autossh_rc`
+
+= SEE ALSO
+
+* autossh: <http://www.harding.motd.ca/autossh/>
 
 =end wikidoc
