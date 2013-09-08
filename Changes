@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    * Add meta-provides information
+
 1.1.1     2013-09-04 18:15:34 Europe/Berlin
 
     * Version 1.1.0 was rejected by cpan
